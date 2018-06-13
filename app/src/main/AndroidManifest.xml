@@ -16,8 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".Home" />
         <activity android:name=".CreateValuation"></activity>
+=======
+        <activity android:name=".Login"></activity>
+>>>>>>> 6c7ce948c2160a63eef8e7a5280e3a25c10e8279
     </application>
 
 </manifest>
