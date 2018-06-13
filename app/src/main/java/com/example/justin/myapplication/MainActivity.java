@@ -12,9 +12,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // I am testing!!!
-<<<<<<< HEAD
     // Tristan's change
-=======
     // Testing VS code by Adrian
->>>>>>> 91691840a2db91718659182710b2ffa94544a18a
+
 }
