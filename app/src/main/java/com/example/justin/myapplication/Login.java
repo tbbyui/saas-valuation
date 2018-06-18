@@ -3,6 +3,7 @@ package com.example.justin.myapplication;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.content.Intent;
 
 public class Login extends AppCompatActivity {
 
@@ -13,6 +14,6 @@ public class Login extends AppCompatActivity {
     }
 
     public void login(View view) {
-
+        Intent intent = new Intent(this, Home.class);
     }
 }
