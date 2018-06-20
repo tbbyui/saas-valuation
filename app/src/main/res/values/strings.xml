@@ -18,5 +18,5 @@
     <string name="cancelButton">Cancel</string>
     <string name="accepted">Accepted</string>
     <string name="declined">Declined</string>
-    <string name="empty"> </string>
+    <string name="empty">empty</string>
 </resources>
