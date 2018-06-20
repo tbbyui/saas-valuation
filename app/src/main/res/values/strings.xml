@@ -2,4 +2,18 @@
     <string name="app_name">My Application</string>
     <string name="user">User</string>
     <string name="login">Login</string>
+    <string name="arr">ARR</string>
+    <string name="revenueGrowth">Revenue Growth Rate</string>
+    <string name="tam">TAM</string>
+    <string name="churn">Customer Churn</string>
+    <string name="grossMargin">Gross Margin</string>
+    <string name="cac">CAC</string>
+    <string name="ltv">LTV</string>
+    <string name="total">Total Customers</string>
+    <string name="endRevenue">End of Year Revenue</string>
+    <string name="lastRevenue">Last Year Revenue</string>
+    <string name="sales">Sales</string>
+    <string name="marketingCost">Marketing Cost</string>
+    <string name="editButton">Edit</string>
+    <string name="cancelButton">Cancel</string>
 </resources>
