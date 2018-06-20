@@ -16,4 +16,5 @@
     <string name="marketingCost">Marketing Cost</string>
     <string name="editButton">Edit</string>
     <string name="cancelButton">Cancel</string>
+    <string name="submitButton">Submit</string>
 </resources>
