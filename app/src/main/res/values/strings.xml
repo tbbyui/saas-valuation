@@ -16,11 +16,7 @@
     <string name="marketingCost">Marketing Cost</string>
     <string name="editButton">Edit</string>
     <string name="cancelButton">Cancel</string>
-<<<<<<< HEAD
-    <string name="submitButton">Submit</string>
-=======
     <string name="accepted">Accepted</string>
     <string name="declined">Declined</string>
-    <string name="empty"> </string>
->>>>>>> b5391341941e50d1e4f5017fe57f058d182d762a
+    <string name="empty">empty</string>
 </resources>
