@@ -6,6 +6,7 @@ import android.view.View;
 import android.content.Intent;
 
 public class Login extends AppCompatActivity {
+    public static final String USER_REFS = "Username Preferences";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

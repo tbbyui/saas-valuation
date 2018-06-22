@@ -26,12 +26,12 @@
         android:layout_height="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="8dp"
         android:text="@string/revenueGrowth"
         android:textColor="@android:color/black"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/arrText"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/arr" />
 
     <TextView
         android:id="@+id/tam"
@@ -39,12 +39,12 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/tam"
         android:textColor="@android:color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/arr" />
+        app:layout_constraintTop_toBottomOf="@+id/revenueGroth" />
 
     <TextView
         android:id="@+id/churn"
@@ -52,12 +52,12 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="8dp"
         android:text="@string/churn"
         android:textColor="@android:color/black"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/tamText"
-        app:layout_constraintTop_toBottomOf="@+id/revenueGroth" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tam" />
 
     <TextView
         android:id="@+id/grossMargin"
@@ -65,25 +65,25 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/grossMargin"
         android:textColor="@android:color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tam" />
+        app:layout_constraintTop_toBottomOf="@+id/churn" />
 
     <TextView
         android:id="@+id/cac"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/cac"
         android:textColor="@android:color/black"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/grossMarginText"
-        app:layout_constraintTop_toBottomOf="@+id/churn" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/grossMargin" />
 
     <TextView
         android:id="@+id/ltv"
@@ -91,12 +91,12 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/ltv"
         android:textColor="@android:color/black"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/grossMargin" />
+        app:layout_constraintTop_toBottomOf="@+id/cac" />
 
     <Button
         android:id="@+id/editButton"
@@ -104,10 +104,10 @@
         android:layout_height="36dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="8dp"
         android:text="@string/editButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ltvText" />
+        app:layout_constraintTop_toBottomOf="@+id/ltv" />
 
     <Button
         android:id="@+id/cancelButton"
@@ -162,16 +162,13 @@
     <TextView
         android:id="@+id/revenueGrothText"
         android:layout_width="wrap_content"
-        android:layout_height="15dp"
-        android:layout_marginEnd="40dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="40dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="8dp"
         android:text="@string/empty"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/revenueGroth"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/arrText" />
 
     <TextView
         android:id="@+id/tamText"
@@ -179,24 +176,21 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/empty"
         app:layout_constraintStart_toEndOf="@+id/tam"
-        app:layout_constraintTop_toBottomOf="@+id/arrText" />
+        app:layout_constraintTop_toBottomOf="@+id/revenueGroth" />
 
     <TextView
         android:id="@+id/churnText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="69dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="69dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="8dp"
         android:text="@string/empty"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/churn"
-        app:layout_constraintTop_toBottomOf="@+id/revenueGroth" />
+        app:layout_constraintTop_toBottomOf="@+id/tamText" />
 
     <TextView
         android:id="@+id/cacText"
@@ -204,24 +198,21 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="8dp"
         android:text="@string/empty"
         app:layout_constraintStart_toEndOf="@+id/cac"
-        app:layout_constraintTop_toBottomOf="@+id/churnText" />
+        app:layout_constraintTop_toBottomOf="@+id/grossMargin" />
 
     <TextView
         android:id="@+id/ltvText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="268dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="268dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="8dp"
         android:text="@string/empty"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ltv"
-        app:layout_constraintTop_toBottomOf="@+id/grossMargin" />
+        app:layout_constraintTop_toBottomOf="@+id/cacText" />
 
     <TextView
         android:id="@+id/grossMarginText"
@@ -229,9 +220,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="8dp"
         android:text="@string/empty"
         app:layout_constraintStart_toEndOf="@+id/grossMargin"
-        app:layout_constraintTop_toBottomOf="@+id/tamText" />
+        app:layout_constraintTop_toBottomOf="@+id/churn" />
 
 </android.support.constraint.ConstraintLayout>
