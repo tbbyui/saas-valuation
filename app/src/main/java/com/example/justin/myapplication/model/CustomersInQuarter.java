@@ -16,17 +16,8 @@ public class CustomersInQuarter {
     private Month earliestMonth;
     private int custLastMonth;
     List<MonthOfCustomers> customersData;
-    /**
-     * Non-Default Constructor                                  (1)
-     * <p>
-     * This will store
-     * <p>                                                      (2)
-     * And even more explanations to follow in consecutive
-     * paragraphs separated by HTML paragraph breaks.
-     *
-     * @param  variable Description text text text.             (3)
-     * @return Description text text text.
-     */
+    private int addCap; // Temp Solution for not knowing the year
+
     public CustomersInQuarter(
         Month currentMonth,
         int endOfLastMonth,
@@ -37,16 +28,21 @@ public class CustomersInQuarter {
         this.earliestMonth = currentMonth;
         this.custLastMonth = endOfLastMonth;
 
+        this.addCap = 3;
+
         customersData = new ArrayList<>();
         addMonth(endOfPrevMonth, lostDuringLastMonth);
     }
 
     public boolean addMonth(int custAtStart, int custLost) {
-        if (earliestMonth.getPrevMonth().equals(currentMonth)) {
+        if (earliestMonth.getPrevMonth().equals(currentMonth) || addCap <= 0) {
             return false;
         }
+
         earliestMonth = earliestMonth.getPrevMonth();
         customersData.add(new MonthOfCustomers(earliestMonth, custAtStart, custLost));
+
+        addCap--;
         return true;
     }
 
@@ -56,7 +52,7 @@ public class CustomersInQuarter {
                 return m;
             }
         }
-        throw new MonthNotInDataException("Month " + month.toString() + " is not in the data");
+        throw new MonthNotInDataException("Month " + month.toString() + " is not in the data list");
     }
 
     public MonthOfCustomers getEarliestCustomerData() {
@@ -69,11 +65,11 @@ public class CustomersInQuarter {
         return m;
     }
 
-    public float estimatedYearlyChrun() {
-        return 0f;
+    public float getEstimatedYearlyChrunRate() {
+        return getAverageChurnRate() * 12;
     }
 
-    public float getAverageChurn() {
+    public float getAverageChurnRate() {
         Integer numOfMonths = 0;
         Float totalChurn = 0f;
         for (MonthOfCustomers m : customersData) {
@@ -81,6 +77,28 @@ public class CustomersInQuarter {
             numOfMonths++;
         }
         return totalChurn / numOfMonths;
+    }
+
+    public float getAverageLoss() {
+        int numOfMonths = 0;
+        int totalLoss = 0;
+        for (MonthOfCustomers m : customersData) {
+            totalLoss += m.getLoss();
+            numOfMonths++;
+        }
+        return (float)totalLoss / (float)numOfMonths;
+    }
+
+    public float getAverageCustomers() {
+        int numOfMonths = 0;
+        int totalCustomers = 0;
+        for (MonthOfCustomers m : customersData) {
+            totalCustomers += m.getCustomers();
+            numOfMonths++;
+        }
+        totalCustomers += custLastMonth;
+        numOfMonths++;
+        return (float)totalCustomers / (float)numOfMonths;
     }
 
 
@@ -103,11 +121,11 @@ public class CustomersInQuarter {
             this.month = month;
         }
 
-        public int getStart() {
+        public int getCustomers() {
             return custAtStart;
         }
 
-        public void setStart(int custAtStart) {
+        public void setCustomers(int custAtStart) {
             this.custAtStart = custAtStart;
         }
 

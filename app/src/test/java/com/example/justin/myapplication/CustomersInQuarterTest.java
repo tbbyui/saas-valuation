@@ -12,6 +12,7 @@ public class CustomersInQuarterTest {
         final int endOfLastMonth = 120;
         final int lostDuringLastMonth = 20;
         final int endOfPrevMonth = 100;
+        final float churn = 0.2f;
 
         CustomersInQuarter q = new CustomersInQuarter(
                 currentMonth,
@@ -20,11 +21,63 @@ public class CustomersInQuarterTest {
                 endOfPrevMonth
         );
 
-        Float churn = new Float(100);
-
         assertEquals(q.getEarliestCustomerData().getMonth(), currentMonth.getPrevMonth());
-        assertEquals(q.getEarliestCustomerData().getStart(), endOfPrevMonth);
+        assertEquals(q.getEarliestCustomerData().getCustomers(), endOfPrevMonth);
         assertEquals(q.getEarliestCustomerData().getLoss(), lostDuringLastMonth);
-        //assertEquals(q.getEarliestCustomerData().getChurn(), churn); // this will fail.
+        assertEquals(q.getEarliestCustomerData().getChurn(), churn);
+    }
+
+    @Test
+    public void addMonthTest() {
+        final Month currentMonth = Month.MARCH;
+        final int endOfLastMonth = 120;
+        final int m1Loss = 20;
+        final int m1Customers = 100;
+
+        final int m2Loss = 20;
+        final int m2Customers = 180;
+
+        final int m3Loss = 20;
+        final int m3Customers = 160;
+
+        final float aveLoss = 20f;
+
+        CustomersInQuarter q = new CustomersInQuarter(
+                currentMonth,
+                endOfLastMonth,
+                m1Loss,
+                m1Customers
+        );
+
+        q.addMonth(m2Customers, m2Loss);
+        q.addMonth(m3Customers, m3Loss);
+
+        assertEquals(q.getAverageLoss(), aveLoss);
+        assertFalse(q.addMonth(m3Customers, m3Loss));
+
+        boolean thrown = false;
+
+        try {
+            q.getCustomersDataFor(Month.FEBRUARY);
+        } catch (CustomersInQuarter.MonthNotInDataException e) {
+            System.err.println(e);
+            thrown = true;
+        }
+        assertFalse(thrown);
+        try {
+            q.getCustomersDataFor(Month.NOVEMBER);
+        } catch (CustomersInQuarter.MonthNotInDataException e) {
+            System.err.println(e);
+            thrown = true;
+        }
+        assertTrue(thrown);
+        thrown = false;
+        try {
+            q.getCustomersDataFor(Month.MARCH);
+        } catch (CustomersInQuarter.MonthNotInDataException e) {
+            System.err.println(e);
+            thrown = true;
+        }
+        assertFalse(thrown);
     }
 }
