@@ -77,14 +77,13 @@
         android:id="@+id/total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginLeft="84dp"
+        android:layout_marginStart="84dp"
         android:ems="10"
         android:inputType="numberDecimal"
         android:text="@string/total"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="43dp" />
 
     <Button
         android:id="@+id/cancel"
@@ -116,11 +115,17 @@
         android:id="@+id/monthLostCust"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
+        android:layout_marginBottom="7dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginLeft="85dp"
+        android:layout_marginRight="84dp"
+        android:layout_marginStart="85dp"
         android:ems="10"
         android:inputType="numberDecimal"
         android:text="@string/monthLostCust"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="86dp" />
+        app:layout_constraintBottom_toTopOf="@+id/endRevenue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/startMonthCust"
@@ -129,17 +134,15 @@
         android:ems="10"
         android:inputType="numberDecimal"
         android:text="@string/startMonthCust"
-        tools:layout_editor_absoluteX="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="0dp" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="32dp"
         android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="300dp"
+        tools:layout_editor_absoluteY="187dp" />
 </android.support.constraint.ConstraintLayout>
