@@ -20,8 +20,14 @@
     <string name="declined">Declined</string>
     <string name="empty">empty</string>
     <string name="submitButton">Submit</string>
+<<<<<<< HEAD
     <string name="password">Password</string>
     <string name="logoutButton">Logout</string>
     <string name="createButton">Create</string>
     <string name="displayButton">Display</string>
 </resources>
+=======
+    <string name="monthLostCust">Customers lost during Month</string>
+    <string name="startMonthCust">Customers at start of Month</string>
+</resources>
+>>>>>>> c1429e6557a556220474632552ee776b3273e99d
