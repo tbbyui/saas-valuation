@@ -16,8 +16,8 @@
     <string name="marketingCost">Marketing Cost</string>
     <string name="editButton">Edit</string>
     <string name="cancelButton">Cancel</string>
-    <string name="accepted">Accepted</string>
-    <string name="declined">Declined</string>
+    <string name="accept">Accept</string>
+    <string name="decline">Decline</string>
     <string name="empty">empty</string>
     <string name="submitButton">Submit</string>
     <string name="monthLostCust">Customers lost during Month</string>
