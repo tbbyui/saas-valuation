@@ -3,6 +3,7 @@ package com.example.justin.myapplication;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -10,14 +11,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Intent i = new Intent(this, CreateValuation.class);
-        startActivity(i);
+//
 
     }
 
-    // I am testing!!!
-    // Tristan's change
-    // Testing VS code by Adrian
+    public void click(View view) {
+        View text = findViewById(R.id.tv);
+        if (text.getVisibility() == View.INVISIBLE) {
+            text.setVisibility(View.VISIBLE);
+        } else if (text.getVisibility() == View.VISIBLE) {
+            text.setVisibility(View.INVISIBLE);
+        }
+    }
 
 }

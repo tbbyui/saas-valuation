@@ -1,8 +1,8 @@
-package com.example.justin.myapplication;
+package com.example.justin.myapplication.controler;
 
 import com.example.justin.myapplication.exceptions.UsernameAlreadyExistsException;
 
-public interface User {
+public interface UserFetcher {
     String getUsername();
 
     Boolean login(String username, String password);
