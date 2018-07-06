@@ -11,17 +11,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//
+
+        Intent  intent = new Intent(this, Login.class);
+        startActivity(intent);
 
     }
-
-    public void click(View view) {
-        View text = findViewById(R.id.tv);
-        if (text.getVisibility() == View.INVISIBLE) {
-            text.setVisibility(View.VISIBLE);
-        } else if (text.getVisibility() == View.VISIBLE) {
-            text.setVisibility(View.INVISIBLE);
-        }
-    }
-
 }
