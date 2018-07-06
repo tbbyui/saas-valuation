@@ -20,4 +20,6 @@
     <string name="declined">Declined</string>
     <string name="empty">empty</string>
     <string name="submitButton">Submit</string>
+    <string name="monthLostCust">Customers lost during Month</string>
+    <string name="startMonthCust">Customers at start of Month</string>
 </resources>
