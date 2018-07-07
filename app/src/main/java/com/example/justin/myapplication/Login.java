@@ -16,6 +16,10 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
     }
 
+    /**
+     * Login with username and password. Go to Home activity.
+     * @param view
+     */
     public void login(View view) {
         EditText user = findViewById(R.id.user);
         String str_user = user.getText().toString();
