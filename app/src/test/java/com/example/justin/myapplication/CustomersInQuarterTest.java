@@ -1,6 +1,6 @@
 package com.example.justin.myapplication;
 
-import com.example.justin.myapplication.model.CustomersInQuarter;
+import com.example.justin.myapplication.model.CustomersInfo;
 
 import static junit.framework.Assert.*;
 import org.junit.Test;
@@ -14,7 +14,7 @@ public class CustomersInQuarterTest {
         final int endOfPrevMonth = 100;
         final float churn = 0.2f;
 
-        CustomersInQuarter q = new CustomersInQuarter(
+        CustomersInfo q = new CustomersInfo(
                 currentMonth,
                 endOfLastMonth,
                 lostDuringLastMonth,
@@ -42,7 +42,7 @@ public class CustomersInQuarterTest {
 
         final float aveLoss = 20f;
 
-        CustomersInQuarter q = new CustomersInQuarter(
+        CustomersInfo q = new CustomersInfo(
                 currentMonth,
                 endOfLastMonth,
                 m1Loss,
@@ -59,14 +59,14 @@ public class CustomersInQuarterTest {
 
         try {
             q.getCustomersDataFor(Month.FEBRUARY);
-        } catch (CustomersInQuarter.MonthNotInDataException e) {
+        } catch (CustomersInfo.MonthNotInDataException e) {
             System.err.println(e);
             thrown = true;
         }
         assertFalse(thrown);
         try {
             q.getCustomersDataFor(Month.NOVEMBER);
-        } catch (CustomersInQuarter.MonthNotInDataException e) {
+        } catch (CustomersInfo.MonthNotInDataException e) {
             System.err.println(e);
             thrown = true;
         }
@@ -74,7 +74,7 @@ public class CustomersInQuarterTest {
         thrown = false;
         try {
             q.getCustomersDataFor(Month.MARCH);
-        } catch (CustomersInQuarter.MonthNotInDataException e) {
+        } catch (CustomersInfo.MonthNotInDataException e) {
             System.err.println(e);
             thrown = true;
         }

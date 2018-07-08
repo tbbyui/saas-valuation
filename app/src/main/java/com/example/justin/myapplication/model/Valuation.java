@@ -5,59 +5,73 @@ import com.example.justin.myapplication.Month;
 import com.google.gson.Gson;
 
 public class Valuation {
-    CustomersInQuarter customerData;
-    RevenueGrowth revenueGrowth;
+    private double publicMultiple;
+    private double privateDiscount;
+    private double marketingCost;
+    private double subscriptionPrice;
+    private long tam;
+    private Revenue revenueObj;
+    private CustomersInfo customers;
 
-    public Valuation() {
-        customerData = null;
-        revenueGrowth = null;
+    public double getMarketingCost() {
+        return marketingCost;
     }
 
-    public boolean valuationIsFull() {
-        boolean full = true;
-        if (customerData == null) {
-            full = false;
-        }
-        if (revenueGrowth == null) {
-            full = false;
-        }
-
-        return full;
+    public void setMarketingCost(double marketingCost) {
+        this.marketingCost = marketingCost;
     }
 
-    public String getJson() {
+    public double getSubscriptionPrice() {
+        return subscriptionPrice;
+    }
+
+    public void setSubscriptionPrice(double subscriptionPrice) {
+        this.subscriptionPrice = subscriptionPrice;
+    }
+
+    public double getPublicMultiple() {
+        return publicMultiple;
+    }
+
+    public void setPublicMultiple(double publicMultiple) {
+        this.publicMultiple = publicMultiple;
+    }
+
+    public double getPrivateDiscount() {
+        return privateDiscount;
+    }
+
+    public void setPrivateDiscount(double privateDiscount) {
+        this.privateDiscount = privateDiscount;
+    }
+
+    public long getTam() {
+        return tam;
+    }
+
+    public void setTam(long tam) {
+        this.tam = tam;
+    }
+
+    public Revenue getRevenueObj() {
+        return revenueObj;
+    }
+
+    public void setRevenueObj(Revenue revenueObj) {
+        this.revenueObj = revenueObj;
+    }
+
+    public CustomersInfo getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(CustomersInfo customers) {
+        this.customers = customers;
+    }
+
+    @Override
+    public String toString() {
         Gson g = new Gson();
         return g.toJson(this);
-    }
-
-    public CustomersInQuarter getCustomerData() {
-        return customerData;
-    }
-
-    public void initCustomerData(
-            Month currentMonth,
-            int endOfLastMonth,
-            int lostDuringLastMonth,
-            int endOfPrevMonth
-    ) {
-        this.customerData = new CustomersInQuarter(
-                currentMonth,
-                endOfLastMonth,
-                lostDuringLastMonth,
-                endOfPrevMonth
-        );
-    }
-
-    public boolean addCustomerMonth(int startingCustomers, int lostCustomers) {
-        return customerData.addMonth(startingCustomers, lostCustomers);
-    }
-
-    public RevenueGrowth getRevenueGrowth() {
-        return revenueGrowth;
-    }
-
-    public void setRevenueGrowth(double currentRevenue, double revenueLastYear) {
-        this.revenueGrowth = null;
-        this.revenueGrowth = new RevenueGrowth(currentRevenue, revenueLastYear);
     }
 }

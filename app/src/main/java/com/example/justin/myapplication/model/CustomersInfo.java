@@ -1,7 +1,7 @@
 package com.example.justin.myapplication.model;
 
-
 import com.example.justin.myapplication.Month;
+import com.example.justin.myapplication.Year;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,39 +11,13 @@ import java.util.List;
 * @version  1.0
 * */
 
-public class CustomersInQuarter {
-    final private Month currentMonth;
-    private Month earliestMonth;
-    private int custLastMonth;
+public class CustomersInfo {
     List<MonthOfCustomers> customersData;
-    private int addCap; // Temp Solution for not knowing the year
 
-    public CustomersInQuarter(
-        Month currentMonth,
-        int endOfLastMonth,
-        int lostDuringLastMonth,
-        int endOfPrevMonth
-    ) {
-        this.currentMonth = currentMonth;
-        this.earliestMonth = currentMonth;
-        this.custLastMonth = endOfLastMonth;
+    public CustomersInfo() {}
 
-        this.addCap = 3;
-
-        customersData = new ArrayList<>();
-        addMonth(endOfPrevMonth, lostDuringLastMonth);
-    }
-
-    public boolean addMonth(int custAtStart, int custLost) {
-        if (earliestMonth.getPrevMonth().equals(currentMonth) || addCap <= 0) {
-            return false;
-        }
-
-        earliestMonth = earliestMonth.getPrevMonth();
-        customersData.add(new MonthOfCustomers(earliestMonth, custAtStart, custLost));
-
-        addCap--;
-        return true;
+    public void addMonth(Month month, Year year, int custAtStart, int custLost) {
+        customersData.add(new MonthOfCustomers(month, year, custAtStart, custLost));
     }
 
     public MonthOfCustomers getCustomersDataFor(Month month) throws MonthNotInDataException {
@@ -53,16 +27,6 @@ public class CustomersInQuarter {
             }
         }
         throw new MonthNotInDataException("Month " + month.toString() + " is not in the data list");
-    }
-
-    public MonthOfCustomers getEarliestCustomerData() {
-        MonthOfCustomers m = null;
-        try {
-            m = getCustomersDataFor(earliestMonth);
-        } catch (MonthNotInDataException e) {
-            System.err.println(e);
-        }
-        return m;
     }
 
     public float getEstimatedYearlyChrunRate() {
@@ -96,54 +60,9 @@ public class CustomersInQuarter {
             totalCustomers += m.getCustomers();
             numOfMonths++;
         }
-        totalCustomers += custLastMonth;
         numOfMonths++;
         return (float)totalCustomers / (float)numOfMonths;
     }
-
-
-    public class MonthOfCustomers {
-        private Month month;
-        private int custAtStart;
-        private int custLost;
-
-        public MonthOfCustomers(Month month, int custAtStart, int custLost) {
-            this.month = month;
-            this.custAtStart = custAtStart;
-            this.custLost = custLost;
-        }
-
-        public Month getMonth() {
-            return month;
-        }
-
-        public void setMonth(Month month) {
-            this.month = month;
-        }
-
-        public int getCustomers() {
-            return custAtStart;
-        }
-
-        public void setCustomers(int custAtStart) {
-            this.custAtStart = custAtStart;
-        }
-
-        public int getLoss() {
-            return custLost;
-        }
-
-        public void setLoss(int custLost) {
-            this.custLost = custLost;
-        }
-
-        public float getChurn() {
-            float custLostf = (float)custLost;
-            float custAtStartf = (float)custAtStart;
-            return custLostf / custAtStartf;
-        }
-    }
-
 
     public class MonthNotInDataException extends Exception {
         public MonthNotInDataException(String message) {

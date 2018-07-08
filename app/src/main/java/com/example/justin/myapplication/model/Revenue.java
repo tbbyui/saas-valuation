@@ -1,31 +1,31 @@
 package com.example.justin.myapplication.model;
 
-public class RevenueGrowth {
-    private double currentRevenue;
-    private double revenueLastYear;
+public class Revenue {
+    private double thisYear;
+    private double lastYear;
 
-    public RevenueGrowth(double currentRevenue, double revenueLastYear) {
-        this.currentRevenue = currentRevenue;
-        this.revenueLastYear = revenueLastYear;
+    public Revenue(double currentRevenue, double revenueLastYear) {
+        this.thisYear = currentRevenue;
+        this.lastYear = revenueLastYear;
     }
 
-    public double getCurrentRevenue() {
-        return currentRevenue;
+    public double getThisYear() {
+        return thisYear;
     }
 
-    public void setCurrentRevenue(double currentRevenue) {
-        this.currentRevenue = currentRevenue;
+    public void setThisYear(double thisYear) {
+        this.thisYear = thisYear;
     }
 
-    public double getRevenueLastYear() {
-        return revenueLastYear;
+    public double getLastYear() {
+        return lastYear;
     }
 
-    public void setRevenueLastYear(double revenueLastYear) {
-        this.revenueLastYear = revenueLastYear;
+    public void setLastYear(double lastYear) {
+        this.lastYear = lastYear;
     }
 
     public double getGrowthPercent() {
-        return getCurrentRevenue() / getRevenueLastYear();
+        return getThisYear() / getLastYear();
     }
 }
