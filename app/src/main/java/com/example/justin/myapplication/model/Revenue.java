@@ -9,6 +9,14 @@ public class Revenue {
         this.lastYear = revenueLastYear;
     }
 
+    @Override
+    public String toString() {
+        return "Revenue{" +
+                "thisYear=" + thisYear +
+                ", lastYear=" + lastYear +
+                '}';
+    }
+
     public double getThisYear() {
         return thisYear;
     }

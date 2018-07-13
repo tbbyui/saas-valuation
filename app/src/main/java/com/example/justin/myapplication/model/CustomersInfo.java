@@ -1,20 +1,26 @@
 package com.example.justin.myapplication.model;
 
+import android.util.Log;
+
 import com.example.justin.myapplication.Month;
 import com.example.justin.myapplication.Year;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/*
+/**
 * @author   Tristan Barrow<bar16041@byui.edu>
 * @version  1.0
 * */
 
 public class CustomersInfo {
+    private static final String TAG = "CustomersInfo";
+
     List<MonthOfCustomers> customersData;
 
-    public CustomersInfo() {}
+    public CustomersInfo() {
+        customersData = new ArrayList<>();
+    }
 
     public void addMonth(Month month, Year year, int custAtStart, int custLost) {
         customersData.add(new MonthOfCustomers(month, year, custAtStart, custLost));
@@ -63,6 +69,19 @@ public class CustomersInfo {
         numOfMonths++;
         return (float)totalCustomers / (float)numOfMonths;
     }
+
+    @Override
+    public String toString() {
+        String output = "CustomersInfo{";
+
+        for (MonthOfCustomers data : customersData) {
+            output.concat(data.toString());
+        }
+        Log.i(TAG, customersData.toString());
+        output.concat("}");
+        return output;
+    }
+
 
     public class MonthNotInDataException extends Exception {
         public MonthNotInDataException(String message) {

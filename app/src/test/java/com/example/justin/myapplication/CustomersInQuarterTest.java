@@ -1,5 +1,7 @@
 package com.example.justin.myapplication;
 
+import android.app.Fragment;
+
 import com.example.justin.myapplication.model.CustomersInfo;
 
 import static junit.framework.Assert.*;
@@ -79,5 +81,11 @@ public class CustomersInQuarterTest {
             thrown = true;
         }
         assertFalse(thrown);
+
+
+
+
+
+
     }
 }

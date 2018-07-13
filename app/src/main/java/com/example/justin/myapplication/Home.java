@@ -30,4 +30,14 @@ public class Home extends AppCompatActivity {
         Intent intent = new Intent(this, Display.class);
         startActivity(intent);
     }
+
+    /**
+     * Show the information of that company. Go to Display activity.
+     * @param view
+     */
+    public void create(View view) {
+        Intent intent = new Intent(this, CreateValuation.class);
+        startActivity(intent);
+    }
+
 }

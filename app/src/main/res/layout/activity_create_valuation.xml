@@ -6,143 +6,176 @@
     android:layout_height="match_parent"
     tools:context=".CreateValuation">
 
-    <EditText
-        android:id="@+id/endRevenue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="52dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:text="@string/endRevenue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/total" />
-
-
-    <EditText
-        android:id="@+id/sales"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:text="@string/sales"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/churn" />
-
-    <EditText
-        android:id="@+id/lastRevenue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:text="@string/lastRevenue"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/endRevenue" />
-
-    <EditText
-        android:id="@+id/churn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:text="@string/churn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lastRevenue" />
-
-    <EditText
-        android:id="@+id/total"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="84dp"
-        android:layout_marginStart="84dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:text="@string/total"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="43dp" />
-
-    <Button
-        android:id="@+id/cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="48dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:text="@string/cancelButton"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/Submit"
-        app:layout_constraintHorizontal_bias="0.706"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/Submit"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_marginBottom="48dp"
-        android:layout_marginEnd="84dp"
-        android:layout_marginRight="84dp"
-        android:text="@string/submitButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <EditText
-        android:id="@+id/monthLostCust"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_marginBottom="7dp"
-        android:layout_marginEnd="84dp"
-        android:layout_marginLeft="85dp"
-        android:layout_marginRight="84dp"
-        android:layout_marginStart="85dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:text="@string/monthLostCust"
-        app:layout_constraintBottom_toTopOf="@+id/endRevenue"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/startMonthCust"
-        android:layout_width="wrap_content"
-        android:layout_height="43dp"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:text="@string/startMonthCust"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="300dp"
-        tools:layout_editor_absoluteY="187dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvMarketingCost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/marketingCost" />
+
+            <EditText
+                android:id="@+id/etMarketingCost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="63dp"
+                tools:layout_editor_absoluteY="87dp" />
+
+            <TextView
+                android:id="@+id/tvSubCost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/subCost" />
+
+            <EditText
+                android:id="@+id/etSubCost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="63dp"
+                tools:layout_editor_absoluteY="87dp" />
+
+            <TextView
+                android:id="@+id/tvTam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tam" />
+
+            <EditText
+                android:id="@+id/etTam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="63dp"
+                tools:layout_editor_absoluteY="87dp" />
+
+            <TextView
+                android:id="@+id/tvRevLastYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/revLastYear" />
+
+            <EditText
+                android:id="@+id/etRevLastYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="63dp"
+                tools:layout_editor_absoluteY="87dp" />
+
+            <TextView
+                android:id="@+id/tvRevThisYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/revThisYear" />
+
+            <EditText
+                android:id="@+id/etRevThisYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="63dp"
+                tools:layout_editor_absoluteY="87dp" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/custInfo" />
+
+            <TextView
+                android:id="@+id/tvCustAtStart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/custAtStart" />
+
+            <EditText
+                android:id="@+id/etCustAtStart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="63dp"
+                tools:layout_editor_absoluteY="87dp" />
+
+            <TextView
+                android:id="@+id/tvCustLoss"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/custInfo" />
+
+            <EditText
+                android:id="@+id/etCustLoss"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="63dp"
+                tools:layout_editor_absoluteY="87dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btCancel"
+                    android:layout_width="91dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:onClick="onCancel"
+                    android:text="@string/cancelButton"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
+                <Button
+                    android:id="@+id/btSubmit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:onClick="onSubmit"
+                    android:text="@string/submitButton"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
 </android.support.constraint.ConstraintLayout>

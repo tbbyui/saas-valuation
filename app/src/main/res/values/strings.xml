@@ -4,14 +4,18 @@
     <string name="login">Login</string>
     <string name="arr">ARR: </string>
     <string name="revenueGrowth">Revenue Growth Rate: </string>
-    <string name="tam">TAM: </string>
+    <string name="tam">TAM</string>
     <string name="churn">Customer Churn: </string>
     <string name="grossMargin">Gross Margin: </string>
     <string name="cac">CAC: </string>
     <string name="ltv">LTV: </string>
+    <string name="subCost">Subscription Cost</string>
     <string name="total">Total Customers</string>
-    <string name="endRevenue">End of Year Revenue</string>
-    <string name="lastRevenue">Last Year Revenue</string>
+    <string name="revLastYear">Revenue Last Year</string>
+    <string name="revThisYear">Revenue This Year</string>
+    <string name="custInfo">Customer Info for Last Month</string>
+    <string name="custLoss">Customer Loss for Month</string>
+    <string name="custAtStart">Customers At Start of Month</string>
     <string name="sales">Sales</string>
     <string name="marketingCost">Marketing Cost</string>
     <string name="editButton">Edit</string>
@@ -20,10 +24,9 @@
     <string name="decline">Decline</string>
     <string name="empty">empty</string>
     <string name="submitButton">Submit</string>
-    <string name="monthLostCust">Customers lost during Month</string>
-    <string name="startMonthCust">Customers at start of Month</string>
     <string name="createButton">Create</string>
     <string name="displayButton">Display</string>
     <string name="logoutButton">Logout</string>
     <string name="password">Password</string>
+
 </resources>
