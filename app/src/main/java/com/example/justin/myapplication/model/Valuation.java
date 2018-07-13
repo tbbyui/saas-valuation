@@ -13,6 +13,19 @@ public class Valuation {
     private Revenue revenueObj;
     private CustomersInfo customers;
 
+    @Override
+    public String toString() {
+        return "Valuation{" +
+                "publicMultiple=" + publicMultiple +
+                ", privateDiscount=" + privateDiscount +
+                ", marketingCost=" + marketingCost +
+                ", subscriptionPrice=" + subscriptionPrice +
+                ", tam=" + tam +
+                ", revenueObj=" + revenueObj.toString() +
+                ", customers=" + customers.toString() +
+                '}';
+    }
+
     public double getMarketingCost() {
         return marketingCost;
     }
@@ -69,9 +82,9 @@ public class Valuation {
         this.customers = customers;
     }
 
-    @Override
-    public String toString() {
-        Gson g = new Gson();
-        return g.toJson(this);
-    }
+//    @Override
+//    public String toString() {
+//        Gson g = new Gson();
+//        return g.toJson(this);
+//    }
 }

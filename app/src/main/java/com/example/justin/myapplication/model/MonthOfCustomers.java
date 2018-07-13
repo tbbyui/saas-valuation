@@ -56,4 +56,14 @@ public class MonthOfCustomers {
         float custAtStartf = (float)custAtStart;
         return custLostf / custAtStartf;
     }
+
+    @Override
+    public String toString() {
+        return "MonthOfCustomers{" +
+                "month=" + month +
+                ", year=" + year +
+                ", custAtStart=" + custAtStart +
+                ", custLost=" + custLost +
+                '}';
+    }
 }
