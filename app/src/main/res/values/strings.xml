@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Saas-Valuation</string>
-    <string name="user">User</string>
+    <string name="email">Email</string>
     <string name="login">Login</string>
     <string name="arr">ARR: </string>
     <string name="revenueGrowth">Revenue Growth Rate: </string>
