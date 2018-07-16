@@ -66,31 +66,32 @@ public class Login extends AppCompatActivity {
      * @param view
      */
     public void login(View view) {
-        startActivity(new Intent(this, Home.class));
-//
-//        EditText editText_User = findViewById(R.id.user);
-//        EditText editText_Password = findViewById(R.id.pw);
-//
-//        String user = editText_User.getText().toString();
-//        String password = editText_Password.getText().toString();
+
+        EditText etEmail = findViewById(R.id.email);
+        EditText etPassword = findViewById(R.id.pw);
+
+        String user = etEmail.getText().toString();
+        String password = etPassword.getText().toString();
 
 
-//            mAuth.signInWithEmailAndPassword(user, password)
-//                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-//                        @Override
-//                        public void onComplete(@NonNull Task<AuthResult> login) {
-//                            if (login.isSuccessful()) {
-//                                // Sign in success, update UI with the signed-in user's information
-//                                Log.d(TAG, "signInWithEmail:success");
-//                                updateUI(mAuth.getCurrentUser());
-//                            } else {
-//                                // If sign in fails, display a message to the user.
-//                                Log.w(TAG, "signInWithEmail:failure", login.getException());
-//
-//                                updateUI(null);
-//                            }
-//                        }
-//                    });
+            mAuth.signInWithEmailAndPassword(user, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> login) {
+                        if (login.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithEmail:success");
+                            startActivity(new Intent(Login.this, Home.class));
+
+
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithEmail:failure", login.getException());
+                            ((TextView)findViewById(R.id.display)).setText("Failed to Login");
+
+                        }
+                    }
+                });
 
 
 //            SP sp = new SP(this);
@@ -106,15 +107,5 @@ public class Login extends AppCompatActivity {
 //            }
 
     }
-//
-//    private void updateUI(FirebaseUser user) {
-//        TextView display = findViewById(R.id.display);
-//        if (user != null) {
-//            display.setText(user.getEmail().toString());
-//        } else {
-//            display.setText("Failed to Login");
-//        }
-//    }
-
 
 }
