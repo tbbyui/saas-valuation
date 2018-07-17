@@ -1,6 +1,7 @@
 package com.example.justin.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,13 +15,19 @@ import com.example.justin.myapplication.model.Revenue;
 import com.example.justin.myapplication.model.Valuation;
 import com.google.gson.Gson;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class CreateValuation extends AppCompatActivity {
     private static final String TAG = "CreateValuation";
+    Map<String, EditText> values;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_valuation);
+        values = new HashMap<>();
     }
 
     public void showError(String message) {
@@ -59,7 +66,7 @@ public class CreateValuation extends AppCompatActivity {
 
         String s = g.toJson(v);
         Log.i(TAG, v.toString());
-        db.store("Valuation", s);
+        db.store("Valuation", g);
 
         Valuation newVal = g.fromJson(s, Valuation.class);
         Log.i(TAG, newVal.toString());
@@ -67,13 +74,20 @@ public class CreateValuation extends AppCompatActivity {
 
 
     public void onCancel(View view) {
-        showError("This Works");
+        startActivity(new Intent(this, Home.class));
     }
 
     public void onSubmit(View view) {
-        if (checkViews()){
+        values.put("compName", (EditText)findViewById(R.id.etCompName));
+        values.put("marketingCost", (EditText)findViewById(R.id.etCompName));
+        values.put("subCost", (EditText)findViewById(R.id.etCompName));
+        values.put("tam", (EditText)findViewById(R.id.etCompName));
+        values.put("lastRev", (EditText)findViewById(R.id.etCompName));
+        values.put("revThis", (EditText)findViewById(R.id.etCompName));
+        values.put("custStart", (EditText)findViewById(R.id.etCompName));
+        values.put("custLoss", (EditText)findViewById(R.id.etCompName));
 
-        }
+
     }
 
 }

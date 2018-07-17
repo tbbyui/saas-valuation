@@ -33,10 +33,25 @@
                 android:id="@+id/tvMarketingCost"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/compNameTag" />
+
+            <EditText
+                android:id="@+id/etCompName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                tools:layout_editor_absoluteX="63dp"
+                tools:layout_editor_absoluteY="87dp" />
+
+            <TextView
+                android:id="@+id/tvMarketingCost2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="@string/marketingCost" />
 
             <EditText
-                android:id="@+id/etMarketingCost"
+                android:id="@+id/etMarketingCost2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"

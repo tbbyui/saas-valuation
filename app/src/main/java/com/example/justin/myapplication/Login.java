@@ -26,6 +26,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 
+import org.w3c.dom.Text;
+
 public class Login extends AppCompatActivity {
     private final String TAG = "Login";
     public static final String USER = "User";
@@ -66,32 +68,41 @@ public class Login extends AppCompatActivity {
      * @param view
      */
     public void login(View view) {
-
+        //startActivity(new Intent(this, Home.class));
         EditText etEmail = findViewById(R.id.email);
         EditText etPassword = findViewById(R.id.pw);
 
         String user = etEmail.getText().toString();
         String password = etPassword.getText().toString();
 
+        if (user.equals("")) {
+            ((TextView)findViewById(R.id.tvError)).setText("Email is Required");
+            return;
+        }
+        if (password.equals("")) {
+            ((TextView)findViewById(R.id.tvError)).setText("Password is Required");
+            return;
+        }
 
-            mAuth.signInWithEmailAndPassword(user, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> login) {
-                        if (login.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithEmail:success");
-                            startActivity(new Intent(Login.this, Home.class));
+
+        mAuth.signInWithEmailAndPassword(user, password)
+            .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> login) {
+                    if (login.isSuccessful()) {
+                        // Sign in success, update UI with the signed-in user's information
+                        Log.d(TAG, "signInWithEmail:success");
+                        startActivity(new Intent(Login.this, Home.class));
 
 
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", login.getException());
-                            ((TextView)findViewById(R.id.display)).setText("Failed to Login");
+                    } else {
+                        // If sign in fails, display a message to the user.
+                        Log.w(TAG, "signInWithEmail:failure", login.getException());
+                        ((TextView)findViewById(R.id.tvError)).setText("Failed to Login");
 
-                        }
                     }
-                });
+                }
+            });
 
 
 //            SP sp = new SP(this);
