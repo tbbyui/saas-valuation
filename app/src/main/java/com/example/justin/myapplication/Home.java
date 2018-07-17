@@ -1,10 +1,17 @@
 package com.example.justin.myapplication;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.CursorAdapter;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,10 +24,21 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        valuations = new ArrayList<>();
+        valuations = new ArrayList<> ();
+        valuations.add("Company Name:");
         valuations.add("hi");
         valuations.add("bob");
         valuations.add("bob's place");
+
+        ListView listView = (ListView) findViewById(R.id.listViewValuation);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, valuations);
+        listView.setAdapter(arrayAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(Home.this, valuations.get(position),Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     /**
@@ -50,7 +68,4 @@ public class Home extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onSelect(View view) {
-        Log.i(TAG, "bob's place");
-    };
 }
