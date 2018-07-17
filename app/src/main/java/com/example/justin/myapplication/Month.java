@@ -37,6 +37,36 @@ public enum Month {
         return returnVal;
     }
 
+    static public Month of(String m) throws OutsideMonthBoundsException {
+        switch(m.toString()) {
+            case "January":
+                return Month.JANUARY;
+            case "February":
+                return Month.FEBRUARY;
+            case "March":
+                return Month.MARCH;
+            case "April":
+                return Month.APRIL;
+            case "May":
+                return Month.MAY;
+            case "June":
+                return Month.JUNE;
+            case "July":
+                return Month.JULY;
+            case "August":
+                return Month.AUGUST;
+            case "September":
+                return Month.SEPTEMBER;
+            case "October":
+                return Month.OCTOBER;
+            case "November":
+                return Month.NOVEMBER;
+            case "December":
+                return Month.DECEMBER;
+        }
+        return null;
+    }
+
     public Month getPrevMonth() {
         Month retMonth = null;
         if (this.getInt() == 1) {

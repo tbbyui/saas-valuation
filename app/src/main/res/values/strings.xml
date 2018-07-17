@@ -13,7 +13,7 @@
     <string name="total">Total Customers</string>
     <string name="revLastYear">Revenue Last Year</string>
     <string name="revThisYear">Revenue This Year</string>
-    <string name="custInfo">Customer Info for Last Month</string>
+    <string name="custInfo">Customer Info for the Month of: </string>
     <string name="custLoss">Customer Loss for Month</string>
     <string name="custAtStart">Customers At Start of Month</string>
     <string name="sales">Sales</string>
@@ -29,5 +29,22 @@
     <string name="logoutButton">Logout</string>
     <string name="password">Password</string>
     <string name="compNameTag">Company Name</string>
+    <string name="year">Year</string>
+    <string name="month">Month</string>
 
+
+    <string-array name="months">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
 </resources>

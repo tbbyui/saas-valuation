@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -69,6 +70,13 @@ public class CreateValuation extends AppCompatActivity {
         startActivity(new Intent(this, Home.class));
     }
 
+    private double parseDouble(String valuesKey) {
+        return Double.parseDouble(values.get(valuesKey).getText().toString());
+    }
+    private int parseInt(String valuesKey) {
+        return Integer.parseInt(values.get(valuesKey).getText().toString());
+    }
+
     public void onSubmit(View view) {
         Log.i(TAG, "Submitted");
         values.clear();
@@ -78,8 +86,9 @@ public class CreateValuation extends AppCompatActivity {
         values.put("TAM", (EditText)findViewById(R.id.etTam));
         values.put("Last Year's Revenue", (EditText)findViewById(R.id.etRevLastYear));
         values.put("This Year's Revenue", (EditText)findViewById(R.id.etRevThisYear));
-        values.put("Customers at the Start of Last Month", (EditText)findViewById(R.id.etCustAtStart));
-        values.put("Customer Loss Last Month", (EditText)findViewById(R.id.etCustLoss));
+        values.put("Customers at the Start of Month", (EditText)findViewById(R.id.etCustAtStart));
+        values.put("Customer Over Last Month", (EditText)findViewById(R.id.etCustLoss));
+        values.put("Year", (EditText)findViewById(R.id.etYear));
 
         for (Map.Entry<String, EditText> entry : values.entrySet()) {
             if (entry.getValue().getText().toString().equals("")) {
@@ -89,6 +98,37 @@ public class CreateValuation extends AppCompatActivity {
                 return;
             }
         }
+
+
+
+        FirebaseDataHandler db = new FirebaseDataHandler();
+        Valuation v = new Valuation();
+
+        v.setMarketingCost(parseDouble("Marketing Cost"));
+        v.setSubscriptionPrice(parseDouble("Subscription Cost"));
+        v.setRevenueObj(new Revenue(parseDouble("This Year's Revenue"), parseDouble("Last Year's Revenue")));
+        CustomersInfo info  = new CustomersInfo();
+
+
+        try {
+            String month = ((Spinner)findViewById(R.id.monthSpinner)).getSelectedItem().toString();
+            info.addMonth(
+                    Month.of(month),
+                    new Year(parseInt("Year")),
+                    parseInt("Customers at the Start of Month"),
+                    parseInt("Customer Over Last Month"));
+        } catch (Exception e) {
+            Log.e(TAG, e.toString());
+        }
+
+        v.setCustomers(info);
+
+        Gson g = new Gson();
+
+        String s = g.toJson(v);
+        Log.i(TAG, v.toString());
+        db.store(values.get("Company Name").getText().toString(), s);
+
 
 
     }
