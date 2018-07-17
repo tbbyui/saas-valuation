@@ -2,11 +2,14 @@ package com.example.justin.myapplication;
 
 import android.content.Context;
 import android.content.Intent;
+import android.preference.EditTextPreference;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextSwitcher;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.justin.myapplication.controler.FirebaseDataHandler;
@@ -15,6 +18,7 @@ import com.example.justin.myapplication.model.Revenue;
 import com.example.justin.myapplication.model.Valuation;
 import com.google.gson.Gson;
 
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,18 +38,6 @@ public class CreateValuation extends AppCompatActivity {
         Toast toast = Toast.makeText(this, message, Toast.LENGTH_LONG);
         toast.show();
     }
-
-    private boolean isEmpty(EditText input) {
-        if(input.getText().equals("")) {
-            return true;
-        }
-        return false;
-    }
-
-    private boolean checkViews() {
-        return false;
-    }
-
 
     public void test(View view) {
         FirebaseDataHandler db = new FirebaseDataHandler();
@@ -78,14 +70,25 @@ public class CreateValuation extends AppCompatActivity {
     }
 
     public void onSubmit(View view) {
-        values.put("compName", (EditText)findViewById(R.id.etCompName));
-        values.put("marketingCost", (EditText)findViewById(R.id.etCompName));
-        values.put("subCost", (EditText)findViewById(R.id.etCompName));
-        values.put("tam", (EditText)findViewById(R.id.etCompName));
-        values.put("lastRev", (EditText)findViewById(R.id.etCompName));
-        values.put("revThis", (EditText)findViewById(R.id.etCompName));
-        values.put("custStart", (EditText)findViewById(R.id.etCompName));
-        values.put("custLoss", (EditText)findViewById(R.id.etCompName));
+        Log.i(TAG, "Submitted");
+        values.clear();
+        values.put("Company Name", (EditText)findViewById(R.id.etCompName));
+        values.put("Marketing Cost", (EditText)findViewById(R.id.etMarketingCost));
+        values.put("Subscription Cost", (EditText)findViewById(R.id.etSubCost));
+        values.put("TAM", (EditText)findViewById(R.id.etTam));
+        values.put("Last Year's Revenue", (EditText)findViewById(R.id.etRevLastYear));
+        values.put("This Year's Revenue", (EditText)findViewById(R.id.etRevThisYear));
+        values.put("Customers at the Start of Last Month", (EditText)findViewById(R.id.etCustAtStart));
+        values.put("Customer Loss Last Month", (EditText)findViewById(R.id.etCustLoss));
+
+        for (Map.Entry<String, EditText> entry : values.entrySet()) {
+            if (entry.getValue().getText().toString().equals("")) {
+                String err = entry.getKey() + " is Required";
+                ((TextView)findViewById(R.id.tvErrorCreate)).setText(err);
+                Log.e(TAG, err);
+                return;
+            }
+        }
 
 
     }

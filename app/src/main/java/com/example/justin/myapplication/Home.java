@@ -3,14 +3,24 @@ package com.example.justin.myapplication;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Home extends AppCompatActivity {
+    private static final String TAG = "Home";
+    List<String> valuations;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        valuations = new ArrayList<>();
+        valuations.add("hi");
+        valuations.add("bob");
+        valuations.add("bob's place");
     }
 
     /**
@@ -40,4 +50,7 @@ public class Home extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onSelect(View view) {
+        Log.i(TAG, "bob's place");
+    };
 }
