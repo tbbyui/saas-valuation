@@ -16,6 +16,7 @@
         android:layout_marginStart="16dp"
         android:onClick="logout"
         android:text="@string/logoutButton"
+        android:background="@color/colorDefault1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -28,6 +29,7 @@
         android:layout_marginRight="16dp"
         android:onClick="create"
         android:text="@string/createButton"
+        android:background="@color/colorDefault2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -40,6 +42,7 @@
         android:layout_marginRight="16dp"
         android:onClick="display"
         android:text="@string/displayButton"
+        android:background="@color/colorDefault2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/create_button" />
 
