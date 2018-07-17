@@ -70,7 +70,7 @@ public class Login extends AppCompatActivity {
     public void login(View view) {
         //startActivity(new Intent(this, Home.class));
         EditText etEmail = findViewById(R.id.email);
-        EditText etPassword = findViewById(R.id.pw);
+        EditText etPassword = findViewById(R.id.etPassword);
 
         String user = etEmail.getText().toString();
         String password = etPassword.getText().toString();
