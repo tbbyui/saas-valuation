@@ -171,6 +171,7 @@
                     android:layout_weight="1"
                     android:onClick="onCancel"
                     android:text="@string/cancelButton"
+                    android:background="@color/colorDefault1"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
@@ -186,6 +187,7 @@
                     android:layout_weight="1"
                     android:onClick="onSubmit"
                     android:text="@string/submitButton"
+                    android:background="@color/colorDefault2"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
