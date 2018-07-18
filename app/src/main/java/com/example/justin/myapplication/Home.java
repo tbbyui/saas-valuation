@@ -42,6 +42,7 @@ public class Home extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(Home.this, valuations.get(position),Toast.LENGTH_SHORT).show();
+                display();
             }
         });
 
@@ -78,9 +79,8 @@ public class Home extends AppCompatActivity {
 
     /**
      * Show the information of that company and navigate to Display activity.
-     * @param view
      */
-    public void display(View view) {
+    public void display() {
         Intent intent = new Intent(this, Display.class);
         startActivity(intent);
     }
