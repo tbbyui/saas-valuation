@@ -29,12 +29,11 @@
             android:id="@+id/dataName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="Company Name"
             android:textAllCaps="true"
             android:textColor="@android:color/black"
             android:textSize="30sp"
-            android:textStyle="bold"
-            tools:text="Company Name" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/labelCac"

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.justin.myapplication.model.Valuation;
 import com.google.firebase.database.DataSnapshot;
@@ -19,24 +20,19 @@ import org.w3c.dom.Text;
 
 public class Display extends AppCompatActivity {
     private static final String TAG = "Display";
-<<<<<<< HEAD
-    private static final String VALUEIS = "Value is: ";
-=======
+    private static final String VALUE_IS = "Value is: ";
     Valuation valuation;
->>>>>>> d2356d4e7bbd1fc65d5bef2471ab1f80a3858e07
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
 
-
         Intent intent = getIntent();
 
         Bundle bundle = intent.getExtras();
 
         String s = bundle.getString(Home.VAL_ID);
-
 
         valuation = null;
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -49,14 +45,11 @@ public class Display extends AppCompatActivity {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 String value = dataSnapshot.getValue(String.class);
-<<<<<<< HEAD
-                Log.d(TAG, VALUEIS + value);
-=======
+                Log.d(TAG, VALUE_IS + value);
                 Gson g = new Gson();
                 valuation = g.fromJson(value, Valuation.class);
                 setUI();
                 Log.d(TAG, valuation.toString());
->>>>>>> d2356d4e7bbd1fc65d5bef2471ab1f80a3858e07
             }
 
             @Override
@@ -113,7 +106,8 @@ public class Display extends AppCompatActivity {
      * @param view
      */
     public void accept(View view) {
-
+        startActivity(new Intent(this, Home.class));
+        Toast.makeText(this, "The valuation has accepted!",Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -122,7 +116,8 @@ public class Display extends AppCompatActivity {
      * @param view
      */
     public void decline(View view) {
-
+        startActivity(new Intent(this, Home.class));
+        Toast.makeText(this, "The valuation has declined!",Toast.LENGTH_SHORT).show();
     }
 
     public void archive(View view) {
