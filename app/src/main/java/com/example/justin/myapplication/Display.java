@@ -14,7 +14,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Display extends AppCompatActivity {
     private static final String TAG = "Display";
-
+    private static final String VALUEIS = "Value is: ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class Display extends AppCompatActivity {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 String value = dataSnapshot.getValue(String.class);
-                Log.d(TAG, "Value is: " + value);
+                Log.d(TAG, VALUEIS + value);
             }
 
             @Override

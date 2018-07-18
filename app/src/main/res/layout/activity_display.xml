@@ -26,6 +26,17 @@
         app:layout_constraintVertical_bias="1.0">
 
         <TextView
+            android:id="@+id/dataName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textAllCaps="true"
+            android:textColor="@android:color/black"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            tools:text="Company Name" />
+
+        <TextView
             android:id="@+id/labelCac"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,7 +46,10 @@
             android:id="@+id/dataCac"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="datacac" />
+            android:text="datacac"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/labelLtv"
@@ -47,7 +61,10 @@
             android:id="@+id/dataLtv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="dataLTV" />
+            android:text="dataLTV"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/labelChurn"
@@ -58,7 +75,11 @@
         <TextView
             android:id="@+id/dataChrun"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="dataChurn"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/labelTam"
@@ -70,7 +91,10 @@
             android:id="@+id/dataTam"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="dataTam" />
+            android:text="dataTam"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/labelGrowth"
@@ -82,7 +106,10 @@
             android:id="@+id/dataGrowth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="dataGrowth" />
+            android:text="dataGrowth"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/labelArr"
@@ -94,7 +121,10 @@
             android:id="@+id/dataArr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="dataArr" />
+            android:text="dataArr"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
