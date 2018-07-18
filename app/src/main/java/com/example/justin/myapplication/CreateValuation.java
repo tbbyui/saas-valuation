@@ -129,7 +129,8 @@ public class CreateValuation extends AppCompatActivity {
         Log.i(TAG, v.toString());
         db.store(values.get("Company Name").getText().toString(), s);
 
-
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
 
     }
 
