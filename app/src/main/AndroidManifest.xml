@@ -20,7 +20,8 @@
         <activity android:name=".Home" />
         <activity android:name=".CreateValuation"></activity>
         <activity android:name=".Login"></activity>
-
+        <activity android:name=".controler.PopupWindow"
+            android:theme="@style/AppTheme.PopTheme"></activity>
     </application>
 
 </manifest>

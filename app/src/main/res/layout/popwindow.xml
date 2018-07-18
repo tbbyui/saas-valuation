@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/addBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="126dp"
+        android:onClick="onAdd"
+        android:text="Add" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/customersLost"
+        android:layout_alignStart="@+id/customersLost"
+        android:layout_marginBottom="-42dp"
+        android:text="Customers Lost" />
+
+    <EditText
+        android:id="@+id/customersLost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/addBtn"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="54dp"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/customersLost"
+        android:layout_marginTop="112dp"
+        android:text="Customers at Start" />
+
+    <EditText
+        android:id="@+id/customersAtStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/addBtn"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="144dp"
+        android:ems="10"
+        android:inputType="number" />
+
+</RelativeLayout>
