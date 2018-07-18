@@ -26,9 +26,17 @@ public class Display extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
 
+
+        Intent intent = getIntent();
+
+        Bundle bundle = intent.getExtras();
+
+        String s = bundle.getString(Home.VAL_ID);
+
+
         valuation = null;
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Bob");
+        DatabaseReference myRef = database.getReference(s);
 
         myRef.addValueEventListener(new ValueEventListener() {
 
@@ -58,7 +66,12 @@ public class Display extends AppCompatActivity {
     }
 
     private void setUI() {
-        setTextView(R.id.dataTam,((Long)valuation.getTam()).toString());
+        setTextView(R.id.dataTam, valuation.getTamStr());
+        setTextView(R.id.dataLtv,"Cac is coming");
+        setTextView(R.id.dataGrowth,"Cac is coming");
+        setTextView(R.id.dataArr,"Cac is coming");
+        setTextView(R.id.dataChrun,"Cac is coming");
+        setTextView(R.id.dataCac,"Cac is coming");
 
     }
 

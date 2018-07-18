@@ -23,6 +23,7 @@ import java.util.List;
 
 public class Home extends AppCompatActivity {
     private static final String TAG = "Home";
+    public static final String VAL_ID = "VAL_ID";
     List<String> valuations;
 
     ListView listView;
@@ -41,9 +42,9 @@ public class Home extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                display(view);
-                Toast.makeText(Home.this, valuations.get(position),Toast.LENGTH_SHORT).show();
-                display();
+                display(valuations.get(position));
+                //Toast.makeText(Home.this, ,Toast.LENGTH_SHORT).show();
+
             }
         });
 
@@ -81,8 +82,11 @@ public class Home extends AppCompatActivity {
     /**
      * Show the information of that company and navigate to Display activity.
      */
-    public void display() {
+    public void display(String value) {
         Intent intent = new Intent(this, Display.class);
+        Bundle bundle = new Bundle();
+        bundle.putString(VAL_ID, value);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 
