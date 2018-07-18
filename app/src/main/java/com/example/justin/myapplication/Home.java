@@ -3,6 +3,7 @@ package com.example.justin.myapplication;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -56,12 +57,10 @@ public class Home extends AppCompatActivity {
                     valuations.add(child.getKey().toString());
                 }
                 arrayAdapter.notifyDataSetChanged();
-
             }
 
             @Override
             public void onCancelled(DatabaseError error) {
-
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
