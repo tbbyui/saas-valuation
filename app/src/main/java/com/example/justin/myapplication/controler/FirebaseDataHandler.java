@@ -14,6 +14,11 @@ public class FirebaseDataHandler {
 
     FirebaseDatabase database;
 
+    /**
+     * Storing the information from the app into the firebase.
+     * @param key
+     * @param o
+     */
     public void store(String key, Object o){
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -25,6 +30,10 @@ public class FirebaseDataHandler {
 
     }
 
+    /**
+     *
+     * @param key
+     */
     public void readValuation(String key) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference(key);

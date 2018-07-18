@@ -35,11 +35,19 @@ public class CreateValuation extends AppCompatActivity {
         values = new HashMap<>();
     }
 
+    /**
+     *
+     * @param message
+     */
     public void showError(String message) {
         Toast toast = Toast.makeText(this, message, Toast.LENGTH_LONG);
         toast.show();
     }
 
+    /**
+     *
+     * @param view
+     */
     public void test(View view) {
         FirebaseDataHandler db = new FirebaseDataHandler();
         Valuation v = new Valuation();
@@ -65,18 +73,36 @@ public class CreateValuation extends AppCompatActivity {
         Log.i(TAG, newVal.toString());
     }
 
-
+    /**
+     * Navigate back to the Home activity.
+     * @param view
+     */
     public void onCancel(View view) {
         startActivity(new Intent(this, Home.class));
     }
 
+    /**
+     * Parsing from string to double.
+     * @param valuesKey
+     * @return
+     */
     private double parseDouble(String valuesKey) {
         return Double.parseDouble(values.get(valuesKey).getText().toString());
     }
+
+    /**
+     * Parsing from string to integer.
+     * @param valuesKey
+     * @return
+     */
     private int parseInt(String valuesKey) {
         return Integer.parseInt(values.get(valuesKey).getText().toString());
     }
 
+    /**
+     * Pass all the information from the user to the firebase
+     * @param view
+     */
     public void onSubmit(View view) {
         Log.i(TAG, "Submitted");
         values.clear();
@@ -129,9 +155,6 @@ public class CreateValuation extends AppCompatActivity {
         Log.i(TAG, v.toString());
         db.store(values.get("Company Name").getText().toString(), s);
 
-        Intent intent = new Intent(this, Home.class);
-        startActivity(intent);
-
+        startActivity(new Intent(this, Home.class));
     }
-
 }

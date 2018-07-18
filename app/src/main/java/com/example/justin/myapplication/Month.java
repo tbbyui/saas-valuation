@@ -16,14 +16,29 @@ public enum Month {
 
     private final int id;
 
+    /**
+     * A constructor of enum.
+     * @param id
+     */
     Month(int id) {
         this.id = id;
     }
 
+    /**
+     * Getting an integer.
+     * @return
+     */
     public int getInt(){
         return this.id;
     }
 
+    /**
+     * Checking if the month is smaller than 1 or greater than 12,
+     * then it will be throwing an exception.
+     * @param m
+     * @return
+     * @throws OutsideMonthBoundsException
+     */
     static public Month of(int m) throws OutsideMonthBoundsException {
         if (m < 1 || m > 12) {
             throw new OutsideMonthBoundsException("The number " + m + " is not a Month.");
@@ -37,7 +52,12 @@ public enum Month {
         return returnVal;
     }
 
-    static public Month of(String m) throws OutsideMonthBoundsException {
+    /**
+     * Matching the month from the user and converting into a string.
+     * @param m
+     * @return
+     */
+    static public Month of(String m) {
         switch(m.toString()) {
             case "January":
                 return Month.JANUARY;
@@ -67,6 +87,10 @@ public enum Month {
         return null;
     }
 
+    /**
+     * Getting the previous month.
+     * @return
+     */
     public Month getPrevMonth() {
         Month retMonth = null;
         if (this.getInt() == 1) {
@@ -80,6 +104,10 @@ public enum Month {
         return retMonth;
     }
 
+    /**
+     * Getting the next month.
+     * @return
+     */
     public Month getNextMonth() {
         Month retMonth = null;
         if (this.getInt() == 12) {
@@ -93,6 +121,9 @@ public enum Month {
         return retMonth;
     }
 
+    /**
+     * An exception function of month.
+     */
     static class OutsideMonthBoundsException extends Exception {
         public OutsideMonthBoundsException(String message) {
             super(message);
