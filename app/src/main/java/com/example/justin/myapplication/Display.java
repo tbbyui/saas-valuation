@@ -5,24 +5,42 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
+import com.example.justin.myapplication.model.Valuation;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
+
+import org.w3c.dom.Text;
 
 public class Display extends AppCompatActivity {
     private static final String TAG = "Display";
+<<<<<<< HEAD
     private static final String VALUEIS = "Value is: ";
+=======
+    Valuation valuation;
+>>>>>>> d2356d4e7bbd1fc65d5bef2471ab1f80a3858e07
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display);
 
+
+        Intent intent = getIntent();
+
+        Bundle bundle = intent.getExtras();
+
+        String s = bundle.getString(Home.VAL_ID);
+
+
+        valuation = null;
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Bob");
+        DatabaseReference myRef = database.getReference(s);
 
         myRef.addValueEventListener(new ValueEventListener() {
 
@@ -31,7 +49,14 @@ public class Display extends AppCompatActivity {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 String value = dataSnapshot.getValue(String.class);
+<<<<<<< HEAD
                 Log.d(TAG, VALUEIS + value);
+=======
+                Gson g = new Gson();
+                valuation = g.fromJson(value, Valuation.class);
+                setUI();
+                Log.d(TAG, valuation.toString());
+>>>>>>> d2356d4e7bbd1fc65d5bef2471ab1f80a3858e07
             }
 
             @Override
@@ -41,6 +66,20 @@ public class Display extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    private void setTextView(int id, String value) {
+        ((TextView)findViewById(id)).setText(value);
+    }
+
+    private void setUI() {
+        setTextView(R.id.dataTam, valuation.getTamStr());
+        setTextView(R.id.dataLtv,"Cac is coming");
+        setTextView(R.id.dataGrowth,"Cac is coming");
+        setTextView(R.id.dataArr,"Cac is coming");
+        setTextView(R.id.dataChrun,"Cac is coming");
+        setTextView(R.id.dataCac,"Cac is coming");
 
     }
 
@@ -60,6 +99,7 @@ public class Display extends AppCompatActivity {
     public void edit(View view) {
 
     }
+
 
     public void cancelEdit(View view) {}
 
@@ -85,6 +125,8 @@ public class Display extends AppCompatActivity {
 
     }
 
-    public void archive(View view) {}
+    public void archive(View view) {
+
+    }
 }
 

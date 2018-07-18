@@ -81,4 +81,9 @@ public class Valuation {
     public void setCustomers(CustomersInfo customers) {
         this.customers = customers;
     }
+
+    public String getTamStr(){
+        return ((Long)getTam()).toString();
+    }
+
 }
