@@ -8,230 +8,142 @@
     tools:context=".Display"
     tools:layout_editor_absoluteY="81dp">
 
-    <TextView
-        android:id="@+id/arr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:text="@string/arr"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/revenueGroth"
-        android:layout_width="wrap_content"
-        android:layout_height="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/revenueGrowth"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/arr" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
-    <TextView
-        android:id="@+id/tam"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/tam"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/revenueGroth" />
+        <TextView
+            android:id="@+id/labelCac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CAC" />
 
-    <TextView
-        android:id="@+id/churn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/churn"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tam" />
+        <TextView
+            android:id="@+id/dataCac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="datacac" />
 
-    <TextView
-        android:id="@+id/grossMargin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/grossMargin"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/churn" />
+        <TextView
+            android:id="@+id/labelLtv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LTV" />
 
-    <TextView
-        android:id="@+id/cac"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/cac"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/grossMargin" />
+        <TextView
+            android:id="@+id/dataLtv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dataLTV" />
 
-    <TextView
-        android:id="@+id/ltv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/ltv"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cac" />
+        <TextView
+            android:id="@+id/labelChurn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Churn" />
 
-    <Button
-        android:id="@+id/editButton"
-        android:layout_width="55dp"
-        android:layout_height="36dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:onClick="edit"
-        android:text="@string/editButton"
-        android:background="@color/colorDefault1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ltv" />
+        <TextView
+            android:id="@+id/dataChrun"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/cancelButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="79dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:onClick="cancel"
-        android:text="@string/cancelButton"
-        android:background="@color/colorDefault1"
+        <TextView
+            android:id="@+id/labelTam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TAM" />
+
+        <TextView
+            android:id="@+id/dataTam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dataTam" />
+
+        <TextView
+            android:id="@+id/labelGrowth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Growth" />
+
+        <TextView
+            android:id="@+id/dataGrowth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dataGrowth" />
+
+        <TextView
+            android:id="@+id/labelArr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ARR" />
+
+        <TextView
+            android:id="@+id/dataArr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dataArr" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="368dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/declinedButton" />
+        app:layout_constraintStart_toStartOf="parent">
 
-    <Button
-        android:id="@+id/acceptedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="79dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:onClick="accept"
-        android:text="@string/accept"
-        android:background="@color/colorAccept"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/declinedButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/declinedButton"
+            android:layout_width="94dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorDecline"
+            android:onClick="decline"
+            android:text="@string/decline"
+            tools:layout_editor_absoluteX="168dp"
+            tools:layout_editor_absoluteY="152dp" />
 
-    <Button
-        android:id="@+id/declinedButton"
-        android:layout_width="94dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="79dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:onClick="decline"
-        android:text="@string/decline"
-        android:background="@color/colorDecline"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/cancelButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/acceptedButton" />
+        <Button
+            android:id="@+id/acceptedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorAccept"
+            android:onClick="accept"
+            android:text="@string/accept"
+            tools:layout_editor_absoluteX="35dp"
+            tools:layout_editor_absoluteY="140dp" />
 
-    <TextView
-        android:id="@+id/arrText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:text="@string/empty"
-        app:layout_constraintStart_toEndOf="@+id/arr"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/revenueGrothText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/empty"
-        app:layout_constraintStart_toEndOf="@+id/revenueGroth"
-        app:layout_constraintTop_toBottomOf="@+id/arrText" />
-
-    <TextView
-        android:id="@+id/tamText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/empty"
-        app:layout_constraintStart_toEndOf="@+id/tam"
-        app:layout_constraintTop_toBottomOf="@+id/revenueGroth" />
-
-    <TextView
-        android:id="@+id/churnText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/empty"
-        app:layout_constraintStart_toEndOf="@+id/churn"
-        app:layout_constraintTop_toBottomOf="@+id/tamText" />
-
-    <TextView
-        android:id="@+id/cacText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/empty"
-        app:layout_constraintStart_toEndOf="@+id/cac"
-        app:layout_constraintTop_toBottomOf="@+id/grossMargin" />
-
-    <TextView
-        android:id="@+id/ltvText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/empty"
-        app:layout_constraintStart_toEndOf="@+id/ltv"
-        app:layout_constraintTop_toBottomOf="@+id/cacText" />
-
-    <TextView
-        android:id="@+id/grossMarginText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/empty"
-        app:layout_constraintStart_toEndOf="@+id/grossMargin"
-        app:layout_constraintTop_toBottomOf="@+id/churn" />
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorDefault1"
+            android:onClick="cancel"
+            android:text="@string/cancelButton"
+            tools:layout_editor_absoluteX="280dp"
+            tools:layout_editor_absoluteY="314dp" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
