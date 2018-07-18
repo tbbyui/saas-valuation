@@ -64,7 +64,7 @@ public class Login extends AppCompatActivity {
 
 
     /**
-     * Login with username and password. Go to Home activity.
+     * Login with username and password and navigate to Home activity.
      * @param view
      */
     public void login(View view) {

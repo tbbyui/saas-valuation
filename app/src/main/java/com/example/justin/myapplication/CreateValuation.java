@@ -35,11 +35,45 @@ public class CreateValuation extends AppCompatActivity {
         values = new HashMap<>();
     }
 
+    /**
+     *
+     * @param message
+     */
     public void showError(String message) {
         Toast toast = Toast.makeText(this, message, Toast.LENGTH_LONG);
         toast.show();
     }
 
+<<<<<<< HEAD
+    /**
+     *
+     * @param view
+     */
+    public void test(View view) {
+        FirebaseDataHandler db = new FirebaseDataHandler();
+        Valuation v = new Valuation();
+        v.setMarketingCost(100.32d);
+        v.setSubscriptionPrice(19.98d);
+        v.setRevenueObj(new Revenue(13432111.22, 133243.23));
+        CustomersInfo info  = new CustomersInfo();
+        try {
+
+            info.addMonth(Month.APRIL, new Year(2020), 3999,2000);
+            info.addMonth(Month.MARCH, new Year(2020),1000,100);
+            info.addMonth(Month.FEBRUARY, new Year(2020), 4000,3000);
+        } catch (Exception e) {}
+        v.setCustomers(info);
+
+        Gson g = new Gson();
+
+        String s = g.toJson(v);
+        Log.i(TAG, v.toString());
+        db.store("Valuation", g);
+
+        Valuation newVal = g.fromJson(s, Valuation.class);
+        Log.i(TAG, newVal.toString());
+    }
+=======
 //    public void test(View view) {
 //        FirebaseDataHandler db = new FirebaseDataHandler();
 //        Valuation v = new Valuation();
@@ -64,19 +98,38 @@ public class CreateValuation extends AppCompatActivity {
 //        Valuation newVal = g.fromJson(s, Valuation.class);
 //        Log.i(TAG, newVal.toString());
 //    }
+>>>>>>> 86b3d8956f1a2dee963a960470b99a5a718b1379
 
-
+    /**
+     * Navigate back to the Home activity.
+     * @param view
+     */
     public void onCancel(View view) {
         startActivity(new Intent(this, Home.class));
     }
 
+    /**
+     * Parsing from string to double.
+     * @param valuesKey
+     * @return
+     */
     private double parseDouble(String valuesKey) {
         return Double.parseDouble(values.get(valuesKey).getText().toString());
     }
+
+    /**
+     * Parsing from string to integer.
+     * @param valuesKey
+     * @return
+     */
     private int parseInt(String valuesKey) {
         return Integer.parseInt(values.get(valuesKey).getText().toString());
     }
 
+    /**
+     * Pass all the information from the user to the firebase
+     * @param view
+     */
     public void onSubmit(View view) {
         Log.i(TAG, "Submitted");
         values.clear();
@@ -132,10 +185,13 @@ public class CreateValuation extends AppCompatActivity {
 
         Log.i(TAG, v.toString());
 
+<<<<<<< HEAD
+        startActivity(new Intent(this, Home.class));
+=======
         db.store(values.get("Company Name").getText().toString(), s);
         Intent intent = new Intent(this, Home.class);
         startActivity(intent);
 
+>>>>>>> 86b3d8956f1a2dee963a960470b99a5a718b1379
     }
-
 }

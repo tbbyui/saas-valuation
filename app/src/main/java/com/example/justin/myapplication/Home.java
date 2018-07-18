@@ -68,7 +68,7 @@ public class Home extends AppCompatActivity {
 
 
     /**
-     * Logout and go back to Login activity.
+     * Navigate back to Login activity.
      * @param view
      */
     public void logout(View view) {
@@ -77,7 +77,7 @@ public class Home extends AppCompatActivity {
     }
 
     /**
-     * Show the information of that company. Go to Display activity.
+     * Show the information of that company and navigate to Display activity.
      * @param view
      */
     public void display(View view) {
@@ -86,7 +86,7 @@ public class Home extends AppCompatActivity {
     }
 
     /**
-     * Show the information of that company. Go to Display activity.
+     * Create a new company that it needs to do the valuation and navigate to Display activity.
      * @param view
      */
     public void create(View view) {
