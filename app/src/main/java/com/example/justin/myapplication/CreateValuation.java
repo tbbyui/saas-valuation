@@ -40,30 +40,30 @@ public class CreateValuation extends AppCompatActivity {
         toast.show();
     }
 
-    public void test(View view) {
-        FirebaseDataHandler db = new FirebaseDataHandler();
-        Valuation v = new Valuation();
-        v.setMarketingCost(100.32d);
-        v.setSubscriptionPrice(19.98d);
-        v.setRevenueObj(new Revenue(13432111.22, 133243.23));
-        CustomersInfo info  = new CustomersInfo();
-        try {
-
-            info.addMonth(Month.APRIL, new Year(2020), 3999,2000);
-            info.addMonth(Month.MARCH, new Year(2020),1000,100);
-            info.addMonth(Month.FEBRUARY, new Year(2020), 4000,3000);
-        } catch (Exception e) {}
-        v.setCustomers(info);
-
-        Gson g = new Gson();
-
-        String s = g.toJson(v);
-        Log.i(TAG, v.toString());
-        db.store("Valuation", g);
-
-        Valuation newVal = g.fromJson(s, Valuation.class);
-        Log.i(TAG, newVal.toString());
-    }
+//    public void test(View view) {
+//        FirebaseDataHandler db = new FirebaseDataHandler();
+//        Valuation v = new Valuation();
+//        v.setMarketingCost(100.32d);
+//        v.setSubscriptionPrice(19.98d);
+//        v.setRevenueObj(new Revenue(13432111.22, 133243.23));
+//        CustomersInfo info  = new CustomersInfo();
+//        try {
+//
+//            info.addMonth(Month.APRIL, new Year(2020), 3999,2000);
+//            info.addMonth(Month.MARCH, new Year(2020),1000,100);
+//            info.addMonth(Month.FEBRUARY, new Year(2020), 4000,3000);
+//        } catch (Exception e) {}
+//        v.setCustomers(info);
+//
+//        Gson g = new Gson();
+//
+//        String s = g.toJson(v);
+//        Log.i(TAG, v.toString());
+//        db.store("Valuation", g);
+//
+//        Valuation newVal = g.fromJson(s, Valuation.class);
+//        Log.i(TAG, newVal.toString());
+//    }
 
 
     public void onCancel(View view) {
@@ -90,6 +90,8 @@ public class CreateValuation extends AppCompatActivity {
         values.put("Customer Over Last Month", (EditText)findViewById(R.id.etCustLoss));
         values.put("Year", (EditText)findViewById(R.id.etYear));
 
+
+
         for (Map.Entry<String, EditText> entry : values.entrySet()) {
             if (entry.getValue().getText().toString().equals("")) {
                 String err = entry.getKey() + " is Required";
@@ -102,6 +104,7 @@ public class CreateValuation extends AppCompatActivity {
 
 
         FirebaseDataHandler db = new FirebaseDataHandler();
+
         Valuation v = new Valuation();
 
         v.setMarketingCost(parseDouble("Marketing Cost"));
@@ -126,10 +129,10 @@ public class CreateValuation extends AppCompatActivity {
         Gson g = new Gson();
 
         String s = g.toJson(v);
+
         Log.i(TAG, v.toString());
+
         db.store(values.get("Company Name").getText().toString(), s);
-
-
 
     }
 
