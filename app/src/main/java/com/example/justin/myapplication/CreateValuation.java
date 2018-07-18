@@ -26,6 +26,18 @@ import java.util.Map;
 
 public class CreateValuation extends AppCompatActivity {
     private static final String TAG = "CreateValuation";
+    private static final String COMPANYNAME = "Company Name";
+    private static final String MARKETINGCOST = "Marketing Cost";
+    private static final String SUBCOST = "Subscription Cost";
+    private static final String TAM = "TAM";
+    private static final String LASTYEARREVENUE = "Last Year's Revenue";
+    private static final String THISYEARREVENUE = "This Year's Revenue";
+    private static final String STARTOFMONTH= "Customers at the Start of Month";
+    private static final String OVERLASTMONTH = "Customer Over Last Month";
+    private static final String YEAR = "Year";
+    private static final String SUMITTED = "Submitted";
+    private static final String ISREQUIRED = " is Required";
+
     Map<String, EditText> values;
 
     @Override
@@ -100,23 +112,23 @@ public class CreateValuation extends AppCompatActivity {
      * @param view
      */
     public void onSubmit(View view) {
-        Log.i(TAG, "Submitted");
+        Log.i(TAG, SUMITTED);
         values.clear();
-        values.put("Company Name", (EditText)findViewById(R.id.etCompName));
-        values.put("Marketing Cost", (EditText)findViewById(R.id.etMarketingCost));
-        values.put("Subscription Cost", (EditText)findViewById(R.id.etSubCost));
-        values.put("TAM", (EditText)findViewById(R.id.etTam));
-        values.put("Last Year's Revenue", (EditText)findViewById(R.id.etRevLastYear));
-        values.put("This Year's Revenue", (EditText)findViewById(R.id.etRevThisYear));
-        values.put("Customers at the Start of Month", (EditText)findViewById(R.id.etCustAtStart));
-        values.put("Customer Over Last Month", (EditText)findViewById(R.id.etCustLoss));
-        values.put("Year", (EditText)findViewById(R.id.etYear));
+        values.put(COMPANYNAME, (EditText)findViewById(R.id.etCompName));
+        values.put(MARKETINGCOST, (EditText)findViewById(R.id.etMarketingCost));
+        values.put(SUBCOST, (EditText)findViewById(R.id.etSubCost));
+        values.put(TAM, (EditText)findViewById(R.id.etTam));
+        values.put(LASTYEARREVENUE, (EditText)findViewById(R.id.etRevLastYear));
+        values.put(THISYEARREVENUE, (EditText)findViewById(R.id.etRevThisYear));
+        values.put(STARTOFMONTH, (EditText)findViewById(R.id.etCustAtStart));
+        values.put(OVERLASTMONTH, (EditText)findViewById(R.id.etCustLoss));
+        values.put(YEAR, (EditText)findViewById(R.id.etYear));
 
 
 
         for (Map.Entry<String, EditText> entry : values.entrySet()) {
             if (entry.getValue().getText().toString().equals("")) {
-                String err = entry.getKey() + " is Required";
+                String err = entry.getKey() + ISREQUIRED;
                 ((TextView)findViewById(R.id.tvErrorCreate)).setText(err);
                 Log.e(TAG, err);
                 return;
@@ -129,9 +141,9 @@ public class CreateValuation extends AppCompatActivity {
 
         Valuation v = new Valuation();
 
-        v.setMarketingCost(parseDouble("Marketing Cost"));
-        v.setSubscriptionPrice(parseDouble("Subscription Cost"));
-        v.setRevenueObj(new Revenue(parseDouble("This Year's Revenue"), parseDouble("Last Year's Revenue")));
+        v.setMarketingCost(parseDouble(MARKETINGCOST));
+        v.setSubscriptionPrice(parseDouble(SUBCOST));
+        v.setRevenueObj(new Revenue(parseDouble(THISYEARREVENUE), parseDouble(LASTYEARREVENUE)));
         CustomersInfo info  = new CustomersInfo();
 
 
@@ -139,9 +151,9 @@ public class CreateValuation extends AppCompatActivity {
             String month = ((Spinner)findViewById(R.id.monthSpinner)).getSelectedItem().toString();
             info.addMonth(
                     Month.of(month),
-                    new Year(parseInt("Year")),
-                    parseInt("Customers at the Start of Month"),
-                    parseInt("Customer Over Last Month"));
+                    new Year(parseInt(YEAR)),
+                    parseInt(STARTOFMONTH),
+                    parseInt(OVERLASTMONTH));
         } catch (Exception e) {
             Log.e(TAG, e.toString());
         }
@@ -154,7 +166,7 @@ public class CreateValuation extends AppCompatActivity {
 
         Log.i(TAG, v.toString());
 
-        db.store(values.get("Company Name").getText().toString(), s);
+        db.store(values.get(COMPANYNAME).getText().toString(), s);
 
         Intent intent = new Intent(this, Home.class);
         startActivity(intent);
