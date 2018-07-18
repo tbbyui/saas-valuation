@@ -29,6 +29,7 @@ public class FirebaseDataHandler {
         Log.i(TAG, "Stored: \"" + key.toString() + "\" as \"" + o.toString());
 
     }
+<<<<<<< HEAD
 
     /**
      *
@@ -55,4 +56,6 @@ public class FirebaseDataHandler {
             }
         });
     }
+=======
+>>>>>>> 86b3d8956f1a2dee963a960470b99a5a718b1379
 }

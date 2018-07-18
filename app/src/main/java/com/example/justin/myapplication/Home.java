@@ -9,6 +9,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.justin.myapplication.model.Valuation;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,18 +24,18 @@ public class Home extends AppCompatActivity {
     private static final String TAG = "Home";
     List<String> valuations;
 
+    ListView listView;
+    ArrayAdapter<String> arrayAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         valuations = new ArrayList<>();
-        valuations.add("Company Name:");
-        valuations.add("hi");
-        valuations.add("bob");
-        valuations.add("bob's place");
 
-        ListView listView = (ListView) findViewById(R.id.listViewValuation);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, valuations);
+        valuations = new ArrayList<> ();
+        listView = (ListView) findViewById(R.id.listViewValuation);
+        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, valuations);
         listView.setAdapter(arrayAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -35,7 +43,30 @@ public class Home extends AppCompatActivity {
                 Toast.makeText(Home.this, valuations.get(position),Toast.LENGTH_SHORT).show();
             }
         });
+
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference();
+
+        // Read from the database
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                valuations.clear();
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                    valuations.add(child.getKey().toString());
+                }
+                arrayAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
     }
+
 
     /**
      * Navigate back to Login activity.
